@@ -3,37 +3,74 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(CounterWidget());
 }
 
-class MyApp extends StatelessWidget {
+class CounterWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _CounterWidgetState();
+  }
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int _count = 50;
+
+  @override
+  void initState() {
+    _count = 50;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(fontFamily: 'IndieFlower'),
-        home: Scaffold(
-      appBar: AppBar(
-        title: Text('Adding Assets'),
-        centerTitle: true,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Counter'),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Container(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text('Tap "-" to decrement',
+                      style: TextStyle(color: Colors.red, fontSize: 16)),
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _count--;
+                            });
+                          },
+                          icon: Icon(Icons.remove)),
+                      Text(
+                        '${(_count)}',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _count++;
+                            });
+                          },
+                          icon: Icon(Icons.add_rounded)),
+                    ],
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  Text('Tap "+" to decrement',
+                      style: TextStyle(color: Colors.red, fontSize: 16)),
+                ]),
+          ),
+        ),
       ),
-      body: Center(
-        child: Stack(fit: StackFit.expand, children: <Widget>[
-          Image.asset('assets/images/purchase_background.png'),
-          Image.asset('assets/icons/Cover.JPG'),
-          Positioned(
-            top: 16,
-            left: 115,
-            child: Text(
-              'My custom font',
-              style: TextStyle(
-                fontSize: 30,
-                color: Colors.white,
-                // fontFamily: 'IndieFlower',
-              ),
-            ),
-          )
-        ]),
-      ),
-    ));
+    );
   }
 }
