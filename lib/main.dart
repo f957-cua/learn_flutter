@@ -19,33 +19,34 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
+      body: Row(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text('hello'),
-              Text('hello my friend'),
-            ],
+          Expanded(flex: 5, child: Image.asset('assets/icons/space-2.jpg')),
+          Expanded(
+            flex: 3,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.amber,
+              child: Text('1'),
+            ),
           ),
-        Container(
-          padding: EdgeInsets.all(10.0),
-          color: Colors.cyan[400],
-          child: Text('one'),
-        ),
-        Container(
-            padding: EdgeInsets.all(20.0),
-            color: Colors.pinkAccent[400],
-            child: Text('two'),
+          Expanded(
+            flex: 2,
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.pinkAccent,
+              child: Text('2'),
+            ),
           ),
-        Container(
-            padding: EdgeInsets.all(30.0),
-            color: Colors.amber[400],
-            child: Text('three'),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(30.0),
+              color: Colors.blueGrey,
+              child: Text('3'),
+            ),
           ),
-      ],),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         child: Text('click'),
         onPressed: () => null,
