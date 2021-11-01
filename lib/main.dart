@@ -15,18 +15,15 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('my first app'),
+        title: Text('my first apps'),
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: Center(
-        child: IconButton(
-          onPressed: () {
-            print('you clicked me');
-          },
-          icon: Icon(Icons.alternate_email),
-          color: Colors.amber,
-        ),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+        margin: EdgeInsets.fromLTRB(20.0, 30.0, 40.0, 50.0),
+        color: Colors.grey[400],
+        child: Text('hello'),
       ),
       floatingActionButton: FloatingActionButton(
         child: Text('click'),
