@@ -8,8 +8,16 @@ void main() {
   ));
 }
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
   // const NinjaCard({Key? key}) : super(key: key);
+
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
+
+  int ninjaLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +28,15 @@ class NinjaCard extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.grey[850],
           elevation: 0.0,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              ninjaLevel ++;
+            });
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.grey[800],
         ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -63,7 +80,7 @@ class NinjaCard extends StatelessWidget {
               ),
               SizedBox(height: 10.0),
               Text(
-                '8',
+                '$ninjaLevel',
                 style: TextStyle(
                   color: Colors.amberAccent[200],
                   letterSpacing: 2.0,
@@ -72,25 +89,24 @@ class NinjaCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Row(
-                children: [
-                  Icon(
-                    Icons.email,
+              Row(children: [
+                Icon(
+                  Icons.email,
+                  color: Colors.grey[400],
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'ivanfiliptschik00@gmail.com',
+                  style: TextStyle(
                     color: Colors.grey[400],
+                    fontSize: 18.0,
+                    letterSpacing: 1.0,
                   ),
-                  SizedBox(width: 10),
-                  Text(
-                    'ivanfiliptschik00@gmail.com',
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                      fontSize: 18.0,
-                      letterSpacing: 1.0,
-                    ),
-                  ),
-                ]
-              ),
+                ),
+              ]),
             ],
           ),
         ));
   }
 }
+
